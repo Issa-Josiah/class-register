@@ -1,0 +1,60 @@
+.DashboardMetrics-grid {
+  display: grid;
+  grid-template-cols: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .DashboardMetrics-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.DashboardMetrics-card {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left-width: 4px;
+  border-left-style: solid;
+}
+
+.DashboardMetrics-card.total { border-left-color: #134074; }
+.DashboardMetrics-card.present { border-left-color: #10b981; }
+.DashboardMetrics-card.late { border-left-color: #f59e0b; }
+.DashboardMetrics-card.absent { border-left-color: #ef4444; }
+
+.DashboardMetrics-card-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.DashboardMetrics-card-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0.25rem 0 0 0;
+}
+
+.DashboardMetrics-card-value.present { color: #059669; }
+.DashboardMetrics-card-value.late { color: #d97706; }
+.DashboardMetrics-card-value.absent { color: #dc2626; }
+
+.DashboardMetrics-card-icon {
+  height: 2rem;
+  width: 2rem;
+  opacity: 0.2;
+}
+
+.DashboardMetrics-card-icon.total { color: #134074; }
+.DashboardMetrics-card-icon.present { color: #10b981; }
+.DashboardMetrics-card-icon.late { color: #f59e0b; }
+.DashboardMetrics-card-icon.absent { color: #ef4444; }

@@ -1,0 +1,281 @@
+.ClassRepPortal-main {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  color: var(--text-main); /* Switched */
+}
+
+.ClassRepPortal-banner {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid;
+}
+
+/* Dynamic handling for Draft state alert banner layouts */
+body[data-theme="dark"] .ClassRepPortal-banner.blue {
+  background-color: rgba(37, 99, 235, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: #93c5fd;
+}
+body[data-theme="light"] .ClassRepPortal-banner.blue {
+  background-color: #eff6ff;
+  border-color: #bfdbfe;
+  color: #134074;
+}
+
+/* Dynamic handling for Locked status state banners */
+body[data-theme="dark"] .ClassRepPortal-banner.amber {
+  background-color: rgba(217, 119, 6, 0.15);
+  border-color: rgba(245, 158, 11, 0.3);
+  color: #fde68a;
+}
+body[data-theme="light"] .ClassRepPortal-banner.amber {
+  background-color: #fffbeb;
+  border-color: #fde68a;
+  color: #92400e;
+}
+
+.ClassRepPortal-banner-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ClassRepPortal-btn-primary {
+  background-color: #2563eb; /* Upgraded to high-contrast blue node */
+  color: #ffffff;
+  font-weight: 500;
+  padding: 0.375rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.ClassRepPortal-btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.ClassRepPortal-table-container {
+  background-color: var(--card-bg); /* Switched */
+  backdrop-filter: var(--glass-blend);
+  -webkit-backdrop-filter: var(--glass-blend);
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color); /* Switched */
+  overflow: hidden;
+}
+
+.ClassRepPortal-table-responsive {
+  overflow-x: auto;
+}
+
+.ClassRepPortal-table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.ClassRepPortal-thead {
+  background-color: rgba(125, 125, 125, 0.05); /* Adaptive surface shading */
+  color: var(--text-muted); /* Switched */
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-color); /* Switched */
+}
+
+.ClassRepPortal-th { padding: 1rem; }
+.ClassRepPortal-th.center { text-align: center; }
+.ClassRepPortal-th.w-id { width: 4rem; }
+.ClassRepPortal-th.w-status { width: 16rem; }
+.ClassRepPortal-th.w-verify { width: 8rem; }
+
+.ClassRepPortal-tr { transition: background-color 0.2s; }
+.ClassRepPortal-tr:hover { background-color: rgba(125, 125, 125, 0.04); }
+
+.ClassRepPortal-td {
+  padding: 1rem;
+  font-size: 0.875rem;
+  border-bottom: 1px solid var(--border-color); /* Switched */
+  color: var(--text-main);
+}
+
+.ClassRepPortal-td.center { text-align: center; }
+.ClassRepPortal-td-roll { font-family: monospace; font-weight: 500; color: var(--text-muted); }
+.ClassRepPortal-td-name { font-weight: 600; color: var(--text-main); }
+
+.ClassRepPortal-button-pad {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  background-color: rgba(125, 125, 125, 0.08); /* Dynamic layout pad wrapper */
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  max-width: 240px;
+  margin: 0 auto;
+}
+
+.ClassRepPortal-pad-btn {
+  flex: 1;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 0.375rem;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: var(--text-muted);
+  transition: all 0.15s;
+}
+
+.ClassRepPortal-pad-btn:hover { background-color: rgba(125, 125, 125, 0.1); }
+.ClassRepPortal-pad-btn.active-Present { background-color: #059669; color: #ffffff; }
+.ClassRepPortal-pad-btn.active-Late { background-color: #d97706; color: #ffffff; }
+.ClassRepPortal-pad-btn.active-Absent { background-color: #dc2626; color: #ffffff; }
+
+.ClassRepPortal-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  border: 1px solid;
+}
+
+/* Retaining accessible layout colors with variable safety checks */
+.ClassRepPortal-badge.Present { background-color: rgba(5, 150, 105, 0.15); color: #34d399; border-color: rgba(5, 150, 105, 0.3); }
+body[data-theme="light"] .ClassRepPortal-badge.Present { background-color: #ecfdf5; color: #047857; border-color: #a7f3d0; }
+
+.ClassRepPortal-badge.Late { background-color: rgba(217, 119, 6, 0.15); color: #fbbf24; border-color: rgba(217, 119, 6, 0.3); }
+body[data-theme="light"] .ClassRepPortal-badge.Late { background-color: #fffbeb; color: #b45309; border-color: #fde68a; }
+
+.ClassRepPortal-badge.Absent { background-color: rgba(220, 38, 38, 0.15); color: #f87171; border-color: rgba(220, 38, 38, 0.3); }
+body[data-theme="light"] .ClassRepPortal-badge.Absent { background-color: #fff5f5; color: #b91c1c; border-color: #fed7d7; }
+
+.ClassRepPortal-input-note {
+  width: 100%;
+  background-color: rgba(125, 125, 125, 0.05);
+  border: 1px solid var(--border-color);
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  color: var(--text-main);
+  box-sizing: border-box;
+}
+
+.ClassRepPortal-input-note:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background-color: var(--bg-primary);
+}
+
+.ClassRepPortal-text-italic { font-size: 0.75rem; color: var(--text-muted); font-style: italic; }
+
+.ClassRepPortal-status-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.ClassRepPortal-status-text.approved { color: #10b981; }
+body[data-theme="light"] .ClassRepPortal-status-text.approved { color: #059669; }
+.ClassRepPortal-status-text.awaiting { color: var(--text-muted); }
+
+.ClassRepPortal-add-card {
+  background-color: var(--card-bg);
+  backdrop-filter: var(--glass-blend);
+  -webkit-backdrop-filter: var(--glass-blend);
+  padding: 1.25rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .ClassRepPortal-add-card {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.ClassRepPortal-input-text {
+  flex: 1;
+  background-color: rgba(125, 125, 125, 0.05);
+  border: 1px solid var(--border-color);
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  color: var(--text-main);
+  outline: none;
+  transition: all 0.2s;
+}
+
+.ClassRepPortal-input-text:focus {
+  border-color: #3b82f6;
+  background-color: var(--bg-primary);
+}
+
+.ClassRepPortal-btn-secondary {
+  background-color: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.ClassRepPortal-btn-secondary:hover {
+  background-color: #1d4ed8;
+}
+
+.ClassRepPortal-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--card-bg);
+  border: 2px dashed var(--border-color);
+  border-radius: 1rem;
+  padding: 4rem 2rem;
+  margin-top: 1.5rem;
+}
+
+.ClassRepPortal-empty-icon {
+  height: 4rem;
+  width: 4rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.ClassRepPortal-empty-state h3 {
+  font-size: 1.25rem;
+  color: var(--text-main);
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+}
+
+.ClassRepPortal-empty-state p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  max-width: 28rem;
+  margin: 0;
+  line-height: 1.5;
+}

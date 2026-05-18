@@ -1,0 +1,134 @@
+.AttendanceRegister-wrapper {
+  min-height: 100vh;
+  background-color: var(--bg-primary); /* Switched: Adapts from dark space to day slate */
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  color: var(--text-main); /* Switched: Inverts typography cleanly */
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.AttendanceRegister-header {
+  background-color: var(--bg-header); /* Switched: Becomes translucent dark glass or frost-glass */
+  backdrop-filter: var(--glass-blend);
+  -webkit-backdrop-filter: var(--glass-blend);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-main); /* Switched */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  z-index: 50;
+}
+
+@media (min-width: 640px) {
+  .AttendanceRegister-header { flex-direction: row; }
+}
+
+.AttendanceRegister-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.AttendanceRegister-logo-bg {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); /* Upgraded brand pop anchor */
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+.AttendanceRegister-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0;
+  color: var(--text-main);
+}
+
+/* Metadata subline tracking badge design alignment */
+.AttendanceRegister-date-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.AttendanceRegister-date-badge strong {
+  color: var(--text-main);
+}
+
+.AttendanceRegister-nav-links {
+  display: flex;
+  align-items: center;
+  background-color: rgba(125, 125, 125, 0.06); /* Dynamic track slider look */
+  padding: 0.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+  gap: 0.25rem;
+}
+
+.AttendanceRegister-nav-item {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+/* Keeps the bright yellow look pop, but forces text to dark theme color for balance */
+.AttendanceRegister-nav-item.is-active {
+  background-color: #eeef20;
+  color: #0b2545; 
+  box-shadow: 0 4px 12px rgba(238, 239, 32, 0.2);
+}
+
+.AttendanceRegister-nav-item.is-inactive {
+  color: var(--text-muted);
+  background: transparent;
+}
+
+.AttendanceRegister-nav-item.is-inactive:hover {
+  color: var(--text-main);
+  background-color: rgba(125, 125, 125, 0.06);
+}
+
+/* Actions: Logout Session Controls */
+.logout-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  background: rgba(239, 68, 68, 0.06);
+  color: #f87171;
+  transition: all 0.2s ease;
+}
+
+body[data-theme="light"] .logout-action-btn {
+  color: #dc2626;
+  background: rgba(220, 38, 38, 0.04);
+  border-color: rgba(220, 38, 38, 0.15);
+}
+
+.logout-action-btn:hover {
+  background-color: #dc2626;
+  color: #ffffff;
+  border-color: #dc2626;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.15);
+}

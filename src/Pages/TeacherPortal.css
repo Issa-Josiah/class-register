@@ -1,0 +1,168 @@
+.TeacherPortal-main {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  color: var(--text-main);
+}
+
+.TeacherPortal-banner {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid;
+}
+
+/* Teacher global overview control panel banner color mapping */
+body[data-theme="dark"] .TeacherPortal-banner {
+  background-color: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #a7f3d0;
+}
+body[data-theme="light"] .TeacherPortal-banner {
+  border-color: #a7f3d0;
+  background-color: #ecfdf5;
+  color: #064e3b;
+}
+
+.TeacherPortal-banner-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.TeacherPortal-banner-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.TeacherPortal-btn-warning {
+  background-color: #d97706;
+  color: #ffffff;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: background 0.2s;
+}
+.TeacherPortal-btn-warning:hover { background-color: #b45309; }
+
+.TeacherPortal-btn-success {
+  background-color: #059669;
+  color: #ffffff;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.TeacherPortal-btn-success:hover { background-color: #047857; }
+
+.TeacherPortal-table-container {
+  background-color: var(--card-bg);
+  backdrop-filter: var(--glass-blend);
+  -webkit-backdrop-filter: var(--glass-blend);
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.TeacherPortal-table-responsive { overflow-x: auto; }
+.TeacherPortal-table { width: 100%; text-align: left; border-collapse: collapse; }
+
+.TeacherPortal-thead {
+  background-color: rgba(125, 125, 125, 0.05);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.TeacherPortal-th { padding: 1rem; }
+.TeacherPortal-th.center { text-align: center; }
+.TeacherPortal-th.w-id { width: 4rem; }
+.TeacherPortal-th.w-status { width: 16rem; }
+.TeacherPortal-th.w-verify { width: 8rem; }
+
+.TeacherPortal-tr { transition: background-color 0.2s; }
+.TeacherPortal-tr:hover { background-color: rgba(125, 125, 125, 0.04); }
+
+.TeacherPortal-td {
+  padding: 1rem;
+  font-size: 0.875rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+.TeacherPortal-td.center { text-align: center; }
+.TeacherPortal-td-roll { font-family: monospace; font-weight: 500; color: var(--text-muted); }
+.TeacherPortal-td-name { font-weight: 600; color: var(--text-main); }
+
+.TeacherPortal-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  border: 1px solid;
+}
+.TeacherPortal-badge.Present { background-color: rgba(5, 150, 105, 0.15); color: #34d399; border-color: rgba(5, 150, 105, 0.3); }
+body[data-theme="light"] .TeacherPortal-badge.Present { background-color: #ecfdf5; color: #047857; border-color: #a7f3d0; }
+
+.TeacherPortal-badge.Late { background-color: rgba(217, 119, 6, 0.15); color: #fbbf24; border-color: rgba(217, 119, 6, 0.3); }
+body[data-theme="light"] .TeacherPortal-badge.Late { background-color: #fffbeb; color: #b45309; border-color: #fde68a; }
+
+.TeacherPortal-badge.Absent { background-color: rgba(220, 38, 38, 0.15); color: #f87171; border-color: rgba(220, 38, 38, 0.3); }
+body[data-theme="light"] .TeacherPortal-badge.Absent { background-color: #fff5f5; color: #b91c1c; border-color: #fed7d7; }
+
+.TeacherPortal-text-italic { font-size: 0.75rem; color: var(--text-muted); font-style: italic; }
+
+.TeacherPortal-btn-verify {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: 1px solid;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.TeacherPortal-btn-verify.verified { background-color: #059669; color: #ffffff; border-color: #047857; }
+
+.TeacherPortal-btn-verify.pending { 
+  background-color: rgba(125, 125, 125, 0.08); 
+  color: var(--text-main); 
+  border-color: var(--border-color); 
+}
+.TeacherPortal-btn-verify.pending:hover {
+  background-color: rgba(125, 125, 125, 0.15);
+  border-color: var(--text-muted);
+}
+
+.TeacherPortal-footer {
+  background-color: rgba(125, 125, 125, 0.02);
+  padding: 1rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.TeacherPortal-footer-highlight { font-weight: 600; color: #10b981; margin: 0; }
+body[data-theme="light"] .TeacherPortal-footer-highlight { color: #047857; }

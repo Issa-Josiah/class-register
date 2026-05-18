@@ -1,0 +1,99 @@
+/* ==========================================================================
+   GLOBAL DESIGN TOKENS & SYSTEM THEMES (LIGHT / DARK)
+   ========================================================================== */
+
+/* Default Space State: Dark Mode Core Map variables */
+:root, body[data-theme="dark"] {
+  --bg-primary: #030712;
+  --bg-header: rgba(15, 23, 42, 0.6);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --card-bg: rgba(15, 23, 42, 0.45);
+  --glass-blend: blur(20px) saturate(160%);
+  --nav-btn-inactive: rgba(255, 255, 255, 0.05);
+  
+  color-scheme: dark;
+}
+
+/* Day State: Light Mode Core Map variables */
+body[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-header: rgba(255, 255, 255, 0.7);
+  --border-color: rgba(0, 0, 0, 0.08);
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --card-bg: rgba(255, 255, 255, 0.65);
+  --glass-blend: blur(20px) saturate(120%);
+  --nav-btn-inactive: rgba(0, 0, 0, 0.03);
+  
+  color-scheme: light;
+}
+
+/* ==========================================================================
+   BASE STYLES & APPLICATION LAYOUT STRUCUTRES
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              color 0.3s ease;
+  min-height: 100vh;
+}
+
+/* Master Wrapper Node Layout Layer */
+.App-container {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg-primary);
+  transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Loading Canvas Intermediary */
+.loading-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background-color: var(--bg-primary);
+}
+
+/* ==========================================================================
+   UNIVERSAL LAYOUT COMPONENT FRAGMENTS (Header Buttons)
+   ========================================================================== */
+
+/* Minimal Switch Action Button Structure Alignment */
+.theme-toggle-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--nav-btn-inactive);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle-action-btn:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.4);
+  transform: scale(1.05);
+}
+
+.theme-toggle-action-btn:active {
+  transform: scale(0.95);
+}
