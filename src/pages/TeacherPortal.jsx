@@ -32,6 +32,7 @@ export default function TeacherPortal({ students, isLocked, onVerify, onApproveA
               <tr>
                 <th className="TeacherPortal-th center w-id">ID</th>
                 <th className="TeacherPortal-th">Student Details</th>
+                <th className="TeacherPortal-th">Admission Number</th>
                 <th className="TeacherPortal-th center w-status">Attendance Status</th>
                 <th className="TeacherPortal-th">Contextual Notes</th>
                 <th className="TeacherPortal-th center w-verify">Verification</th>
@@ -42,6 +43,7 @@ export default function TeacherPortal({ students, isLocked, onVerify, onApproveA
                 <tr key={student.id} className="TeacherPortal-tr">
                   <td className="TeacherPortal-td center TeacherPortal-td-roll">{student.rollNo}</td>
                   <td className="TeacherPortal-td TeacherPortal-td-name">{student.name}</td>
+                  <td className="TeacherPortal-td center">{student.admissionNumber || "—"}</td>
                   <td className="TeacherPortal-td center">
                     <span className={`TeacherPortal-badge ${student.status}`}>{student.status}</span>
                   </td>

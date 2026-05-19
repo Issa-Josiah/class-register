@@ -66,40 +66,41 @@ export default function AttendanceRegister() {
   };
 
   // Action 1: Add a new student to the INDEFINITE roster list
-  const handleAddStudent = async (name) => {
-    if (isLocked) return;
-    
-    const nextId = students.length > 0 ? Math.max(...students.map(s => s.id)) + 1 : 1;
-    const nextRollNo = String(nextId).padStart(3, '0'); 
-    
-    const newStudentObj = {
-      id: nextId,
-      rollNo: nextRollNo,
-      name: name,
-      status: "Present",
-      verified: false,
-      notes: ""
-    };
+  const handleAddStudent = async (name, admissionNumber) => {
+  if (isLocked) return;
+  
+  const nextId = students.length > 0 ? Math.max(...students.map(s => s.id)) + 1 : 1;
+  const nextRollNo = String(nextId).padStart(3, '0'); 
+  
+  // Use user input if provided, otherwise apply default template fallback
+  const finalAdmNo = admissionNumber.trim() ? admissionNumber.trim() : `ADM-${nextRollNo}`;
 
-    // Optimistically update front-end UI state instantly
-    setStudents(prev => [...prev, newStudentObj]);
-
-    // Send data packet over the wire to persist in the indefinite Google Sheet roster
-    try {
-      await fetch(GOOGLE_SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          action: "ADD_STUDENT",
-          student: { rollNo: nextRollNo, name: name }
-        })
-      });
-    } catch (err) {
-      console.error("Could not sync new profile to roster sheet:", err);
-    }
+  const newStudentObj = {
+    id: nextId,
+    rollNo: nextRollNo,
+    name: name,
+    admissionNumber: finalAdmNo,
+    status: "Present",
+    verified: false,
+    notes: ""
   };
 
+  setStudents(prev => [...prev, newStudentObj]);
+
+  try {
+    await fetch(GOOGLE_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        action: "ADD_STUDENT",
+        student: { rollNo: nextRollNo, name: name, admissionNumber: finalAdmNo }
+      })
+    });
+  } catch (err) {
+    console.error("Could not sync new profile to roster sheet:", err);
+  }
+};
   // Action 2: Submit today's attendance log sheet values
   const handleSubmitLogs = async () => {
     setIsLocked(true);
