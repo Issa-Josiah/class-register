@@ -1,8 +1,8 @@
 import React from 'react';
 import './DashboardMetrics.css';
-import { Users, UserCheck, Clock, UserX } from 'lucide-react';
+import { Users, UserCheck, UserX } from 'lucide-react';
 
-export default function DashboardMetrics({ students }) {
+export default function DashboardMetrics({ students = [] }) {
   const total = students.length;
   const present = students.filter(s => s.status === 'Present').length;
   const absent = students.filter(s => s.status === 'Absent').length;

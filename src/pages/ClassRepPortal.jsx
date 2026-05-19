@@ -5,16 +5,12 @@ import DashboardMetrics from '../components/DashboardMetrics';
 
 export default function ClassRepPortal({ students, isLocked, onStatusChange, onNoteChange, onSubmit, onAddStudent }) {
   const [newName, setNewName] = useState('');
-  const [newAdmission, setNewAdmission] = useState(''); // Added state control
+  const [newAdmission, setNewAdmission] = useState(''); 
 
   const handleAddClick = (e) => {
     e.preventDefault();
     if (!newName.trim()) return;
-    
-    // Pass both values up to the parent container
     onAddStudent(newName.trim(), newAdmission.trim());
-    
-    // Clear out form inputs smoothly
     setNewName('');
     setNewAdmission('');
   };
@@ -28,7 +24,7 @@ export default function ClassRepPortal({ students, isLocked, onStatusChange, onN
           {isLocked ? <Lock className="h-5 w-5" /> : <Unlock className="h-5 w-5" />}
           <span>
             {isLocked 
-              ? "Your log is submitted and locked. Waiting for the module teacher to review and verify." 
+              ? "Your log is submitted and locked. Waiting for the module teacher to review and verify records." 
               : "Draft Mode: Mark student attendance using the action keys and click submit below."}
           </span>
         </div>
@@ -66,7 +62,7 @@ export default function ClassRepPortal({ students, isLocked, onStatusChange, onN
         <div className="ClassRepPortal-empty-state">
           <ClipboardList className="ClassRepPortal-empty-icon" />
           <h3>No Students Registered Yet</h3>
-          <p>The attendance ledger is currently empty. Use the fields above to start building the roster.</p>
+          <p>The attendance ledger is empty. Use the fields above to start building the roster.</p>
         </div>
       ) : (
         <div className="ClassRepPortal-table-container">

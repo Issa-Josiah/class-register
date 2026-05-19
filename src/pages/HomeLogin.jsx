@@ -15,10 +15,8 @@ export default function HomeLogin({ onLoginSuccess }) {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const navigate = useNavigate();
 
-  // Track cursor offsets to power the interactive cosmic shift
   useEffect(() => {
     const handleMouseMove = (e) => {
-      // Calculate coordinates relative to viewport center (-0.5 to 0.5 range)
       const x = (e.clientX / window.innerWidth) - 0.5;
       const y = (e.clientY / window.innerHeight) - 0.5;
       setMousePos({ x, y });
@@ -41,7 +39,6 @@ export default function HomeLogin({ onLoginSuccess }) {
     }
   };
 
-  // Convert coordinate offsets to CSS transformation strings
   const backgroundStyle = {
     transform: `translate(${mousePos.x * -30}px, ${mousePos.y * -30}px)`,
   };
@@ -52,7 +49,6 @@ export default function HomeLogin({ onLoginSuccess }) {
 
   return (
     <div className="auth-space-wrapper">
-      {/* Dynamic Cosmic Layers */}
       <div className="milkyway-nebula" style={backgroundStyle}></div>
       <div className="milkyway-stars"></div>
       <div className="interactive-ambient-glow" style={ambientGlowStyle}></div>
@@ -64,7 +60,7 @@ export default function HomeLogin({ onLoginSuccess }) {
               <GraduationCap className="h-8 w-8 text-white" />
             </div>
             <h2>Class Manager System</h2>
-            <p>Select your authorized node layer to initialize secure workspace</p>
+            <p>Select your authorized node layer to initialize workspace</p>
           </div>
 
           {!selectedRole ? (
@@ -75,7 +71,7 @@ export default function HomeLogin({ onLoginSuccess }) {
                 </div>
                 <div className="role-btn-text">
                   <h3>Class Representative</h3>
-                  <span>Log entries and daily logs</span>
+                  <span>Log entries and daily sheets</span>
                 </div>
               </button>
 

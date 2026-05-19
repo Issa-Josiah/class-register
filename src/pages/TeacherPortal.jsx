@@ -3,7 +3,7 @@ import './TeacherPortal.css';
 import { CheckCircle, Unlock, AlertCircle } from 'lucide-react';
 import DashboardMetrics from '../components/DashboardMetrics';
 
-export default function TeacherPortal({ students, isLocked, onVerify, onApproveAll, onUnlock }) {
+export default function TeacherPortal({ students, isLocked, alwaysEditable, onVerify, onApproveAll, onUnlock }) {
   return (
     <div className="TeacherPortal-main">
       <DashboardMetrics students={students} />
@@ -11,7 +11,7 @@ export default function TeacherPortal({ students, isLocked, onVerify, onApproveA
       <div className="TeacherPortal-banner">
         <div className="TeacherPortal-banner-info">
           <CheckCircle className="h-5 w-5" />
-          <span><strong>Teacher Dashboard:</strong> Verify rows flagged by the Representative or open the form for revision.</span>
+          <span><strong>Teacher Section Workspace:</strong> Review rows logged by the representative. Updating verification automatically unlocks access fields for adjustments.</span>
         </div>
         <div className="TeacherPortal-banner-actions">
           {isLocked && (
@@ -24,7 +24,7 @@ export default function TeacherPortal({ students, isLocked, onVerify, onApproveA
           </button>
         </div>
       </div>
-
+ 
       <div className="TeacherPortal-table-container">
         <div className="TeacherPortal-table-responsive">
           <table className="TeacherPortal-table">
@@ -72,9 +72,9 @@ export default function TeacherPortal({ students, isLocked, onVerify, onApproveA
           </table>
         </div>
         <div className="TeacherPortal-footer">
-          <span>Showing {students.length} logged records</span>
+          <span>Showing {students.length} logged student rows</span>
           <p className="TeacherPortal-footer-highlight">
-            Verified: {students.filter(s => s.verified).length} / {students.length}
+            Verified Status Counter: {students.filter(s => s.verified).length} / {students.length}
           </p>
         </div>
       </div>
